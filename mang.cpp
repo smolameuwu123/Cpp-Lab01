@@ -11,7 +11,12 @@ int main() {
     }
     cout << endl;
 
-    // TODO: Xu ly tren mang
+    // Tinh tong cac phan tu trong mang
+    int tong = 0;
+    for (int i = 0; i < 5; i++) {
+        tong += a[i];
+    }
+    cout << "Tong cac phan tu: " << tong << endl;
 
     return 0;
 }
