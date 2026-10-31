@@ -11,7 +11,14 @@ int main() {
     }
     cout << endl;
 
-    // TODO: Xu ly tren mang
+    // Tim phan tu lon nhat (Max) trong mang
+    int maxVal = a[0];
+    for (int i = 1; i < 5; i++) {
+        if (a[i] > maxVal) {
+            maxVal = a[i];
+        }
+    }
+    cout << "Phan tu lon nhat: " << maxVal << endl;
 
     return 0;
 }
