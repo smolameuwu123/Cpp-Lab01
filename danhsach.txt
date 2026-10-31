@@ -1,5 +1,5 @@
-Nguyen_Van_A 8.5
-Tran_Thi_B 4.0
-Le_Van_C 6.5
-Pham_Thi_D 3.5
-Hoang_Van_E 9.0
+Nguyen Van A 8.5
+Tran Thi B 4.0
+Le Van C 6.5
+Pham Thi D 3.5
+Hoang Van E 9.0

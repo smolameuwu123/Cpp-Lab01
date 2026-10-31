@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -18,16 +20,42 @@ int main() {
         return 1;
     }
 
-    string ten;
-    double diem;
+    string line;
     int demPass = 0;
 
     cout << "=== DANH SACH SINH VIEN QUA MON (Diem >= 5.0) ===" << endl;
-    while (inFile >> ten >> diem) {
-        if (diem >= 5.0) {
-            outFile << ten << " " << diem << endl;
-            cout << "- " << ten << " (Diem: " << diem << ")" << endl;
-            demPass++;
+    while (getline(inFile, line)) {
+        if (line.empty()) continue;
+
+        stringstream ss(line);
+        vector<string> tokens;
+        string token;
+        while (ss >> token) {
+            tokens.push_back(token);
+        }
+
+        if (tokens.size() >= 2) {
+            try {
+                // Phan tu cuoi cung la diem
+                double diem = stod(tokens.back());
+
+                // Cac phan tu truoc do la ho ten
+                string ten = "";
+                for (size_t i = 0; i < tokens.size() - 1; i++) {
+                    ten += tokens[i];
+                    if (i < tokens.size() - 2) {
+                        ten += " ";
+                    }
+                }
+
+                if (diem >= 5.0) {
+                    outFile << ten << " " << diem << endl;
+                    cout << "- " << ten << " (Diem: " << diem << ")" << endl;
+                    demPass++;
+                }
+            } catch (...) {
+                // Bo qua dong neu loi chuyen doi diem
+            }
         }
     }
 
